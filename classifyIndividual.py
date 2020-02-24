@@ -1,5 +1,4 @@
 import csv
-
 import pandas as pd
 
 AloneData = pd.DataFrame()
@@ -63,6 +62,7 @@ with open('alone.csv') as f:
 
         if df['gname'] in JI:
             df['Jihad'] = 1
+            df['Religioso'] = 1
 
         if df['gname'] in REL:
             df['Religioso'] = 1
@@ -70,5 +70,5 @@ with open('alone.csv') as f:
         DataAppend.append(df)
 
 newData = AloneData.append(DataAppend,ignore_index=True)
-print(newData.to_excel('individual.xlsx'))
+newData.to_excel('individual.xlsx')
 print('*** Finished ***')
